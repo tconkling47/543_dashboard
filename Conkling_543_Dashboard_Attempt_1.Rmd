@@ -14,6 +14,9 @@ library(sf)
 library(tidyverse)
 library(scales)
 library(grid)
+
+myWeb="https://github.com/tconkling47/543_dashboard/raw/main/"
+boxplot_final=readRDS(file=url(paste0(myWeb,"boxplot.rds")))
 ```
 
 Column {data-width=350}
@@ -28,7 +31,7 @@ Column {data-width=350}
 ### Chart B
 
 ```{r}
-
+boxplot_final
 ```
 
 
