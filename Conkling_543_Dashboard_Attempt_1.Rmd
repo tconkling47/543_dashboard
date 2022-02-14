@@ -1,0 +1,44 @@
+---
+title: "Conkling_543_Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(ggplot2)
+library(plotly)
+library(sf)
+library(tidyverse)
+library(scales)
+library(grid)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+
+```
+
+### Chart B
+
+```{r}
+
+```
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+
+### Chart C
+
+```{r}
+
+```
+
