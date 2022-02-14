@@ -1,0 +1,8 @@
+"0","points3 = points2 + theme(plot.caption = element_text(hjust = 0),"
+"0","       plot.title = element_text(face = 'bold', size = 13, hjust=0, vjust = 0),"
+"0","       plot.subtitle = element_text(face = 'bold', size = 13, hjust=0, vjust=0)"
+"0",")"
+"0","points3"
+"2","Warning:"
+"2"," Using size for a discrete variable is not advised.
+"

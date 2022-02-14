@@ -1,5 +1,0 @@
-"0","#export image"
-"0","ggsave('Conkling_Map_PUBPOL543.jpg', device = 'jpeg', width = 9, height = 4, dpi = 300)"
-"2","Warning:"
-"2"," Using size for a discrete variable is not advised.
-"

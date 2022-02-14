@@ -1,8 +1,0 @@
-"0","boxplot7 = boxplot_6 + theme("
-"0","    plot.title = element_text(face = 'bold', size = 14.65, hjust=0, vjust = 0),"
-"0","    plot.subtitle = element_text(face = 'bold', size = 14.65, hjust=0, vjust=0),"
-"0","    axis.title = element_text(face = 'bold'),"
-"0","    axis.title.y = element_text(vjust = 2.5),"
-"0","    axis.title.x = element_text(vjust = 0)"
-"0","  ) "
-"0","boxplot7"

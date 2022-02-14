@@ -62,5 +62,5 @@
 "0","plot6 = plot5 + theme("
 "0","    plot.title = element_text(face = 'bold', size = 14)"
 "0","  )"
-"0","#saving"
-"0","saveRDS(plot6,file = 'univariate.rds')"
+"0","#export image"
+"0","ggsave('Conkling_Univariate_PUBPOL543.jpg', device = 'jpeg', width = 7.75, height = 5, dpi = 300)"
