@@ -7,6 +7,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+#load packages
 library(flexdashboard)
 library(ggplot2)
 library(plotly)
@@ -14,12 +15,17 @@ library(sf)
 library(tidyverse)
 library(scales)
 library(grid)
-
-myWeb="https://github.com/tconkling47/543_dashboard/raw/main/"
-boxplot_final=readRDS(file=url(paste0(myWeb,"boxplot.rds")))
 ```
 
-Column {data-width=350}
+```{r}
+#load files
+myWeb="https://github.com/tconkling47/543_dashboard/raw/main/"
+boxplot=readRDS(file=url(paste0(myWeb,"boxplot.rds")))
+map=readRDS(file=url(paste0(myWeb,"map.rds")))
+```
+
+
+Column {data-width=450}
 -----------------------------------------------------------------------
 
 ### Chart A
@@ -30,12 +36,12 @@ Column {data-width=350}
 
 ### Chart B
 
-```{r}
-boxplot_final
+```{r, fig.height=5, fig.width=8}
+boxplot
 ```
 
 
-Column {data-width=650}
+Column {data-width=550}
 -----------------------------------------------------------------------
 
 
