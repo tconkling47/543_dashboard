@@ -1,0 +1,5 @@
+"0","```r
+data1 <- debt_pre_merge %>%
+  filter(DEBT_ALL_STGP_ANY_N != 'PrivacySuppressed' 
+         & DEBT_ALL_STGP_ANY_MEAN != 'PrivacySuppressed')
+```"

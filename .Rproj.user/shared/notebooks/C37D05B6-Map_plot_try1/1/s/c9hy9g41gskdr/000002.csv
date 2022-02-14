@@ -1,0 +1,4 @@
+"0","```r
+linkMap=\"https://raw.githubusercontent.com/tconkling47/543_Deliverable_3_Map/main/states.geojson\" 
+mapUSA=read_sf(linkMap)
+```"

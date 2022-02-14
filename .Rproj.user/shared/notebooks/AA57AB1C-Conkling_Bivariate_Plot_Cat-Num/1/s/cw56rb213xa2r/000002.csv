@@ -1,0 +1,11 @@
+"0","```r
+base2=ggplot(data=data5,
+            aes(x=reorder(type,
+                          school_average_student_debt,
+                          median),
+                y=school_average_student_debt)) 
+boxplot_2 = base2 + geom_boxplot()
+# flipping
+boxplot_3 = boxplot_2  + coord_flip()
+boxplot_3
+```"

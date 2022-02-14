@@ -1,0 +1,5 @@
+"0","```r
+debt_pre_merge <- recent_cohort_field_of_study %>%
+  filter(CREDLEV==3) %>%
+  select(UNITID, INSTNM, CIPCODE, CIPDESC, CREDLEV, CREDDESC, DEBT_ALL_STGP_ANY_N, DEBT_ALL_STGP_ANY_MEAN)
+```"

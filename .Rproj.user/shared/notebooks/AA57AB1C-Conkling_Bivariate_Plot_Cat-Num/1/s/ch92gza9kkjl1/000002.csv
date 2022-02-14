@@ -1,0 +1,10 @@
+"0","```r
+collegetypes <- college_scorecard_19_20 %>%
+  mutate(
+    type = case_when(CONTROL==1    ~ 'Public'
+                     ,CONTROL==2 & RELAFFIL=='NULL' ~ 'Non-Profit'
+                     , CONTROL==2 & RELAFFIL!='NULL'      ~ 'Religious'
+                     , CONTROL==3     ~ 'For-Profit')
+  ) %>%
+  select(UNITID, INSTNM, type)
+```"

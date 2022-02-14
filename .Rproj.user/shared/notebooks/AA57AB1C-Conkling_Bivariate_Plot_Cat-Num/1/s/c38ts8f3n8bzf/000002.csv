@@ -1,0 +1,12 @@
+"0","```r
+### Adding title and source
+titleText=\"Public Colleges & Universities Leave Bachelor's Degree Graduates with\"
+subtitleText=\"Less Student Debt Than Other Types of Institutions\"
+sourceText='Source: US Department of Education'
+boxplot_4 = boxplot_3 + labs(title=titleText,
+                             subtitle = subtitleText,
+                   x='Institution Type',
+                   y= \"Average Student Debt of Bachelor's Degree Graduate\",
+                   caption = sourceText) + theme_classic()
+boxplot_4
+```"

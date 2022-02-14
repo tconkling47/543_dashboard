@@ -1,0 +1,16 @@
+"0","```r
+#load scales
+library(scales)
+```"
+"1","Warning: package â€˜scalesâ€™ was built under R version 4.0.5
+
+Attaching package: â€˜scalesâ€™
+
+The following object is masked from â€˜package:purrrâ€™:
+
+    discard
+
+The following object is masked from â€˜package:readrâ€™:
+
+    col_factor
+"

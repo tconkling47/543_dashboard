@@ -1,0 +1,5 @@
+"0","```r
+#export image
+boxplot11
+ggsave('Conkling_Bivariate_Cat-Numerical_Graph_PUBPOL543.jpg', device = 'jpeg', width = 9, height = 5, dpi = 300)
+```"

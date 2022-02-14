@@ -1,0 +1,5 @@
+"0","```r
+#Load College Scorecard
+library(readxl)
+college_scorecard_19_20 <- read.csv(\"https://raw.githubusercontent.com/tconkling47/543_deliverable_2/main/college_scorecard_19-20.csv\")
+```"

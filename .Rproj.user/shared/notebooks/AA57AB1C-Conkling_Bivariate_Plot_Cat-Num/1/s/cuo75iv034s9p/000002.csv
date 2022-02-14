@@ -1,0 +1,7 @@
+"0","```r
+data4 <- data3 %>%
+  group_by(UNITID) %>%
+  summarise(total_students_in_school_sample = sum(DEBT_ALL_STGP_ANY_N),
+            total_debt_in_school_sample = sum(total_debt)) %>%
+  mutate(school_average_student_debt = total_debt_in_school_sample/total_students_in_school_sample)
+```"

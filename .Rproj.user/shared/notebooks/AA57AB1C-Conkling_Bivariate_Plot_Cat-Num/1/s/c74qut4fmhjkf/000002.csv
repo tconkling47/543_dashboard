@@ -1,0 +1,8 @@
+"0","```r
+
+library(ggplot2)
+base=ggplot(data=data5,
+            aes(x=type,y=school_average_student_debt))
+
+base + geom_boxplot() + coord_flip()
+```"
