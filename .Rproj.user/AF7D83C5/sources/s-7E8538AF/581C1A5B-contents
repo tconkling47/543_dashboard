@@ -15,6 +15,7 @@ library(sf)
 library(tidyverse)
 library(scales)
 library(grid)
+library(scales)
 ```
 
 ```{r}
@@ -48,7 +49,7 @@ Row {data-width=350}
 
 ### Chart C
 
-```{r, fig.height=5, fig.width=9}
-map
+```{r}
+univariate
 ```
 

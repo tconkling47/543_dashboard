@@ -3,7 +3,7 @@
     "path": "C:/Users/thoma/OneDrive/Desktop/Conkling_543_Repos/543_dashboard/Conkling_543_Dashboard_Attempt_1.Rmd",
     "project_path": "Conkling_543_Dashboard_Attempt_1.Rmd",
     "type": "r_markdown",
-    "hash": "166031578",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1644872775734.0,
@@ -12,15 +12,16 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "24,52",
-        "scrollLine": "12"
+        "cursorPosition": "52,0",
+        "scrollLine": "45",
+        "last_setup_crc32": "7E8538AFa0293a9a"
     },
     "folds": "",
-    "lastKnownWriteTime": 1644872836,
+    "lastKnownWriteTime": 1644872966,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1644872836230,
+    "last_content_update": 1644872966500,
     "read_only": false,
     "read_only_alternatives": []
 }

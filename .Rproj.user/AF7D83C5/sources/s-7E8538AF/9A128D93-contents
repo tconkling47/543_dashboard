@@ -78,14 +78,14 @@ plot3 = plot2 + scale_y_continuous(breaks=c(0,5000,10000,15000,20000,25000, 3000
 plot4 = plot3 + theme(plot.caption = element_text(hjust = 0),
                       plot.title = element_text(hjust=0.5))
 #create labels for the bars
-LABELS=paste0('$', round(college_tuition$tuition,0))
+#LABELS=paste0('$', round(college_tuition$tuition,0))
 
-plot5 = plot4 + geom_text(hjust=0.5, vjust = 1.2,
-                          size = 5,
-                          aes(y = tuition,
-                              label = LABELS))
+#plot5 = plot4 + geom_text(hjust=0.5, vjust = 1.2,
+                          #size = 5,
+                          #aes(y = tuition,
+                              #label = LABELS))
 #Add a couple final aesthetic touches
-plot6 = plot5 + theme(
+plot6 = plot4 + theme(
     plot.title = element_text(face = 'bold', size = 14)
   )
 #saving
