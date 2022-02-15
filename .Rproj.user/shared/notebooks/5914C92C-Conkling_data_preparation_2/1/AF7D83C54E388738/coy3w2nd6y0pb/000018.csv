@@ -1,0 +1,4 @@
+"0","map3 = base2 + theme(axis.line = element_blank(),"
+"0","        axis.ticks = element_blank(),"
+"0","        axis.text = element_blank())"
+"0","map3"

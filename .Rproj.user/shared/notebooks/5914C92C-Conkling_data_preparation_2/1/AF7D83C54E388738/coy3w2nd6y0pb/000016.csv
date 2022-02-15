@@ -1,0 +1,8 @@
+"0","flagships_sf = st_as_sf(flagships4,"
+"0","                        coords = c(""LONGITUDE"", ""LATITUDE""),"
+"0","                        crs = st_crs(mapUSA)"
+"0","                        )"
+"0","base3 = base2 + geom_sf(data=flagships_sf)"
+"2","Coordinate system already present. Adding new coordinate system, which will replace the existing one.
+"
+"0","base3"

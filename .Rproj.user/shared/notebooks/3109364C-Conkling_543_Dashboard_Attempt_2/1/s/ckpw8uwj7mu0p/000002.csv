@@ -1,0 +1,5 @@
+"0","#load files"
+"0","myWeb=""https://github.com/tconkling47/543_dashboard/raw/main/"""
+"0","boxplot=readRDS(file=url(paste0(myWeb,""boxplot.rds"")))"
+"0","map=readRDS(file=url(paste0(myWeb,""map.rds"")))"
+"0","univariate=readRDS(file=url(paste0(myWeb,""univariate.rds"")))"
