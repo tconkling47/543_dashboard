@@ -1,3 +1,0 @@
-"0","base_A1=ggplot(data=mapUSA) + geom_sf(fill='grey90',"
-"0","                                   color=NA) + theme_classic()"
-"0","base_A1"
