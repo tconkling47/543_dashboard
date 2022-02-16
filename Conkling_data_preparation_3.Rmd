@@ -227,7 +227,7 @@ flagships4 <- flagships3 %>%
 pointsC_1 <- plot_geo(flagships4, lat = ~LATITUDE, lon = ~LONGITUDE)
 mak = list(sizeref=0.1, sizemode="area")
 pointsC_1 <- pointsC_1 %>% add_markers(
-  text = ~paste(flagships4$INSTNM, "<br />", "Undergraduates Enrolled:", flagships4$UGDS, "<br />",  "Average Student Debt After Graduation: $", round(flagships4$school_average_student_debt,2)),
+  text = ~paste(flagships4$INSTNM, "<br />", "Undergraduates Enrolled:", flagships4$UGDS, "<br />",  "Average Student Debt After Graduation: $", round(flagships4$school_average_student_debt,0)),
   color = ~flagships4$school_average_student_debt, colors = 'Oranges', marker = mak, size = flagships4$UGDS, hoverinfo = "text"
 )
 pointsC_1 <- pointsC_1 %>%
