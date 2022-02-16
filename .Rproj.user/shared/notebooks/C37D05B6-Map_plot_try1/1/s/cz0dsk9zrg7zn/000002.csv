@@ -1,4 +1,0 @@
-"0","```r
-base3 = base2 + geom_sf(data=flagships_sf)
-base3
-```"

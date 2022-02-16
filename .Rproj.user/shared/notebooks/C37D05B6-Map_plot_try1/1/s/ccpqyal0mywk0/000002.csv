@@ -1,8 +1,0 @@
-"0","```r
-#Load Debt Dataset
-library(readxl)
-url <- \"https://raw.githubusercontent.com/tconkling47/543_Deliverable_3_Map/main/recent_cohort_field_of_study.xlsx\"
-destfile <- \"recent_cohort_field_of_study.xlsx\"
-curl::curl_download(url, destfile)
-recent_cohort_field_of_study <- read_excel(destfile)
-```"

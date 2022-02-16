@@ -1,0 +1,48 @@
+---
+title: "Dashbords from Evans UW"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+###
+library(ggplot2)
+myWeb="https://github.com/EvansDataScience/VAforPM_Dashboard/raw/main/"
+someVars=readRDS(file=url(paste0(myWeb,"dataCSV.rds")))
+```
+
+[comment]: # (code for plots in this column)
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+base=ggplot(data=someVars) + theme_light()
+hist1=base + geom_histogram(aes(mil_expend))
+hist1
+```
+
+[comment]: # (code for plots in this column)
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+hist2=base + geom_histogram(aes(HDI))
+hist2
+```
+
+### Chart C
+
+```{r}
+scat=base + geom_point(aes(DemoIndex,HDI))
+scat
+```
+

@@ -1,4 +1,0 @@
-"0","```r
-flagships2 <- flagships%>%
-  select(UNITID, INSTNM, UGDS, TUITIONFEE_IN, LONGITUDE, LATITUDE)
-```"

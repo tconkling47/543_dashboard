@@ -1,6 +1,0 @@
-"0","```r
-base=ggplot(data=mapUSA) + geom_sf(fill='grey90',
-                                   color=NA) + theme_classic()
-base2 = base + coord_sf(xlim = c(-125, -70), ylim = c(25, 49))
-base2
-```"

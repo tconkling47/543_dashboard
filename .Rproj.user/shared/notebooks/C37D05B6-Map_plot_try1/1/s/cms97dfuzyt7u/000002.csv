@@ -1,5 +1,0 @@
-"0","```r
-#export image
-points3
-ggsave('Conkling_Map_PUBPOL543.jpg', device = 'jpeg', width = 9, height = 4, dpi = 300)
-```"

@@ -1,9 +1,0 @@
-"0","```r
-titleText=\"Flagship Public Universities Enroll Large Student Populations\"
-subtitleText=\"Who Have Relatively Low Student Debt Burdens After Graduation\"
-sourceText='Source: US Department of Education'
-points2 = points + labs(title=titleText,
-                             subtitle = subtitleText,
-                   caption = sourceText)
-points2
-```"

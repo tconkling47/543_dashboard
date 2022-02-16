@@ -1,7 +1,0 @@
-"0","```r
-points3 = points2 + theme(plot.caption = element_text(hjust = 0),
-       plot.title = element_text(face = 'bold', size = 13, hjust=0, vjust = 0),
-       plot.subtitle = element_text(face = 'bold', size = 13, hjust=0, vjust=0)
-)
-points3
-```"

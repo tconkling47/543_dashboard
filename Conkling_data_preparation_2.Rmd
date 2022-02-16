@@ -26,7 +26,7 @@ destfile <- "recent_cohort_field_of_study.xlsx"
 curl::curl_download(url, destfile)
 recent_cohort_field_of_study <- read_excel(destfile)
 
-url <- "https://raw.githubusercontent.com/tconkling47/543_Deliverable_3_Map/main/Flagship_State_Universities.xlsx"
+url <- "https://raw.githubusercontent.com/tconkling47/543_dashboard/main/Flagship_State_Universities.xlsx"
 destfile <- "Flagship_State_Universities.xlsx"
 curl::curl_download(url, destfile)
 flagships <- read_excel(destfile)
@@ -58,7 +58,7 @@ college_tuition <- college_tuition %>%
   rename(tuition = `mean(TUITIONFEE_OUT, na.rm = TRUE)`)
 base= ggplot(data = college_tuition, 
              aes(x = reorder(type, tuition),
-                 y = tuition)) + geom_bar(fill = "#B1CED0", stat = 'identity')
+                 y = tuition)) + geom_bar(fill = 'grey90', stat = 'identity')
 #add a theme
 plot1 = base + theme_classic()
 titleText='Public Institutions Have The Lowest Tuition Rates among U.S. Colleges'
@@ -224,6 +224,10 @@ flagships4 <- flagships3 %>%
     TUITIONFEE_IN <= 17000 ~ "$13,000 - $17,000",
     TUITIONFEE_IN > 17000 ~ "$17,000 - $20,000"
   ))
+#temporary saving
+saveRDS(flagships4,file = 'flagships.rds')
+#temporary saving
+
 linkMap="https://raw.githubusercontent.com/tconkling47/543_Deliverable_3_Map/main/states.geojson" 
 mapUSA=read_sf(linkMap)
 base=ggplot(data=mapUSA) + geom_sf(fill='grey90',
@@ -270,5 +274,17 @@ points3
 ggsave('Conkling_Map_PUBPOL543.jpg', device = 'jpeg', width = 9, height = 4, dpi = 300)
 #saving
 saveRDS(points3,file = 'map.rds')
+```
+
+
+```{r}
+base_A1=ggplot(data=mapUSA) + geom_sf(fill='grey90',
+                                   color=NA) + theme_classic()
+base_A1
+pointsA = base_A1 + geom_sf(data=flagships_sf,
+                        shape=21,
+                        aes(fill= school_average_student_debt,
+                            size= UGDS))
+pointsA_1 = ggplotly(pointsA)
 ```
 

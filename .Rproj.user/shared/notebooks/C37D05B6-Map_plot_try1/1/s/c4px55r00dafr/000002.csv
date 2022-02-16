@@ -1,6 +1,0 @@
-"0","```r
-map3 = base2 + theme(axis.line = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text = element_blank())
-map3
-```"

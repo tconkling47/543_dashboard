@@ -1,0 +1,7 @@
+"0","linkMap=""https://raw.githubusercontent.com/tconkling47/543_Deliverable_3_Map/main/states.geojson"" "
+"0","mapUSA=read_sf(linkMap)"
+"0","base=ggplot(data=mapUSA) + geom_sf(fill='grey90',"
+"0","                                   color=NA) + theme_classic()"
+"0","base2 = base + coord_sf(xlim = c(-125, -70), ylim = c(25, 49))"
+"0","base2 <- base2 + geom_point(data=flagships4, aes(x=LONGITUDE, y=LATITUDE, size=UGDS, color=school_average_student_debt)) + scale_size_continuous(range=c(1,12)) + scale_color_viridis_b(trans=""log"")"
+"0","base2"

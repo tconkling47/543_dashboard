@@ -1,8 +1,0 @@
-"0","```r
-#Load College Scorecard for Flagship Universities
-library(readxl)
-url <- \"https://raw.githubusercontent.com/tconkling47/543_Deliverable_3_Map/main/Flagship_State_Universities.xlsx\"
-destfile <- \"Flagship_State_Universities.xlsx\"
-curl::curl_download(url, destfile)
-flagships <- read_excel(destfile)
-```"

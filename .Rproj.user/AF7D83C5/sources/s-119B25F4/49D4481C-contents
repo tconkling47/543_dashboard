@@ -1,0 +1,168 @@
+---
+title: "Public Universities are the Best Financial Choice for Postsecondary Education in the U.S."
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+#load packages
+library(flexdashboard)
+library(ggplot2)
+library(plotly)
+library(sf)
+library(tidyverse)
+library(scales)
+library(grid)
+library(scales)
+```
+
+```{r}
+#load files
+myWeb="https://github.com/tconkling47/543_dashboard/raw/main/"
+boxplot=readRDS(file=url(paste0(myWeb,"boxplot.rds")))
+map=readRDS(file=url(paste0(myWeb,"map.rds")))
+univariate=readRDS(file=url(paste0(myWeb,"univariate.rds")))
+flagships4=readRDS(file=url(paste0(myWeb,"flagships.rds")))
+```
+
+
+```{r}
+linkMap="https://raw.githubusercontent.com/tconkling47/543_Deliverable_3_Map/main/states.geojson" 
+mapUSA=read_sf(linkMap)
+flagships_sf = st_as_sf(flagships4,
+                        coords = c("LONGITUDE", "LATITUDE"),
+                        crs = st_crs(mapUSA)
+                        )
+base_A1=ggplot(data=mapUSA) + geom_sf(fill='grey90',
+                                   color=NA) + theme_classic()
+pointsA = base_A1 + geom_sf(data=flagships_sf,
+                        aes(fill= school_average_student_debt, text=INSTNM))
+pointsA_1 <-  ggplotly(pointsA)
+```
+
+```{r}
+flagships4$debt <- with(flagships4, cut(school_average_student_debt, quantile(school_average_student_debt)))
+levels(flagships4$debt) <- paste(c("1st", "2nd", "3rd", "4th", "5th"), "Average Student Debt")
+flagships4$debt <- as.ordered(flagships4$debt)
+
+flagships4$enrl <- with(flagships4, cut(UGDS, quantile(UGDS)))
+levels(flagships4$enrl) <- paste(c("1st", "2nd", "3rd", "4th", "5th"), "Average Student Debt")
+flagships4$enrl <- as.ordered(flagships4$enrl)
+
+legend.sizes = c(10000, 20000, 30000, 40000, 50000, 60000, 75000)
+ax = list(zeroline = FALSE, showline = FALSE, showticklabels = FALSE, showgrid = FALSE)
+mk = list(sizeref=0.1, sizemode="area")
+
+pointsB_1 <- plot_geo(flagships4, locationmode = 'USA-states', sizes = c(1,250))
+pointsB_1 <- pointsB_1 %>% add_markers(
+  x~LONGITUDE, y~LATITUDE, color = ~debt, size = ~UGDS, marker= mk, hoverinfo = "text", text = ~paste(flagships4$INSTNM, "<br />", flagships4$school_average_student_debt, flagships4$UGDS)
+)
+g <- list(
+  scope = 'usa',
+  projection = list(type = 'albers usa'),
+  showland = TRUE,
+  landcolor = toRGB("gray85"),
+  subunitwidth = 1,
+  countrywidth = 1,
+  subunitcolor = toRGB("white"),
+  countrycolor = toRGB("white")
+)
+plot.legend <- plotly() %>%
+  add_markers(x=1, y= legend.sizes, size = legend.sizes, showlegend = F, marker = mk)
+pointsB_1 <- pointsB_1 %>% layout(geo = g)
+pointsB_2 <- subplot(plot.legend, pointsB_1)
+```
+
+```{r}
+pointsC_1 <- plot_geo(flagships4, lat = ~LATITUDE, lon = ~LONGITUDE)
+mak = list(sizeref=0.1, sizemode="area")
+pointsC_1 <- pointsC_1 %>% add_markers(
+  text = ~paste(flagships4$INSTNM, "<br />", "Undergraduates Enrolled:", flagships4$UGDS, "<br />",  "Average Student Debt After Graduation: $", round(flagships4$school_average_student_debt,2)),
+  color = ~flagships4$school_average_student_debt, colors = 'Oranges', marker = mak, size = flagships4$UGDS, hoverinfo = "text"
+)
+pointsC_1 <- pointsC_1 %>%
+  colorbar(title = "Average Student Debt After Graduation", y = 0.75)
+g <- list(
+  scope = 'usa',
+  projection = list(type = 'albers usa'),
+  showland = TRUE,
+  landcolor = toRGB("gray85"),
+  subunitwidth = 1,
+  countrywidth = 1,
+  subunitcolor = toRGB("white"),
+  countrycolor = toRGB("white")
+)
+pointsC_1 <- pointsC_1 %>% layout(geo = g
+)
+legend.plot <- plot_ly() %>% 
+    add_markers(x = 1, 
+    y = seq_len(length(c(10000,20000,30000,40000,50000,60000,75000))),
+    size = sort(c(10000,20000,30000,40000,50000,60000,75000)),
+    showlegend = F, 
+    marker = mak, color = 'Enrollment') %>%
+    layout(
+        annotations = list(
+            list(x = -0.05, 
+                y = 0.02, 
+                text = "Number of Undergraduates Enrolled",
+                showarrow = F, 
+                xref='paper', 
+                yref='paper')),
+         xaxis = list(
+            zeroline=F,
+            showline=F,
+            showticklabels=F,
+            showgrid=F),
+         yaxis=list(
+            showgrid=F,
+            tickmode = "array",
+            tickvals = seq_len(length(c(10000,20000,30000,40000,50000,60000,75000))),
+            ticktext = c("Less than 10,000","10,000 - 20,000", "20,000 - 30,000", "30,000 - 40,000", "40,000 - 50,000", "50,000 - 60,000", "60,000 - 75,000")
+            ))
+pointsC_2 <- subplot(legend.plot, pointsC_1, widths = c(0.1, 0.9), 
+    titleX=TRUE, titleY=TRUE)
+pointsC_2 <- pointsC_2 %>%
+  layout(title = list(text = 'Flagship Public Universities Enroll Large Student Populations Who Have Relatively Low Student Debt Burdens After Graduation', y=0.97, x=0.5, font = list(family = "Courier New, monospace'", size = 20)))
+```
+
+
+
+```{r}
+linkMap="https://raw.githubusercontent.com/tconkling47/543_Deliverable_3_Map/main/states.geojson" 
+mapUSA=read_sf(linkMap)
+base=ggplot(data=mapUSA) + geom_sf(fill='grey90',
+                                   color=NA) + theme_classic()
+base2 = base + coord_sf(xlim = c(-125, -70), ylim = c(25, 49))
+base2 <- base2 + geom_point(data=flagships4, aes(x=LONGITUDE, y=LATITUDE, size=UGDS, color=school_average_student_debt)) + scale_size_continuous(range=c(1,12)) + scale_color_viridis_b(trans="log")
+```
+
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Average Student Debt at U.S. Flagship Public Universities
+
+```{r}
+pointsC_2
+```
+
+
+
+Row {data-width=350}
+-----------------------------------------------------------------------
+
+### Average Yearly Tuition at U.S. Colleges and Universities, by Institution Type
+
+```{r pic, echo = F, fig.cap = "", out.width = '100%'}
+knitr::include_graphics("Conkling_Univariate_PUBPOL543.jpg")
+```
+
+### Distribution of Average Student Debt for B.A. Graduates, by Institution Type
+
+```{r image, echo = F, fig.cap = "", out.width = '100%'}
+knitr::include_graphics("Conkling_Bivariate_Cat-Numerical_Graph_PUBPOL543.jpg")
+```
+
