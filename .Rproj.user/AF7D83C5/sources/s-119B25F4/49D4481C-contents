@@ -36,7 +36,7 @@ Column {data-width=650}
 ### Average Undergraduate Student Debt at U.S. Flagship Public Universities
 
 ```{r}
-interactive_map
+pointsC_2
 ```
 
 
