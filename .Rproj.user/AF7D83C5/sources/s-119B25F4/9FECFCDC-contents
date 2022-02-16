@@ -26,8 +26,8 @@ destfile <- "recent_cohort_field_of_study.xlsx"
 curl::curl_download(url, destfile)
 recent_cohort_field_of_study <- read_excel(destfile)
 
-url <- "https://raw.githubusercontent.com/tconkling47/543_dashboard/main/Flagship_State_Universities.xlsx"
-destfile <- "Flagship_State_Universities.xlsx"
+url <- "https://raw.githubusercontent.com/tconkling47/543_dashboard/main/Flagship_State_Universities_2.xlsx"
+destfile <- "Flagship_State_Universities_2.xlsx"
 curl::curl_download(url, destfile)
 flagships <- read_excel(destfile)
 ```
