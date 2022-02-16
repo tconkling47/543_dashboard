@@ -1,0 +1,8 @@
+"0","#load files"
+"0","myWeb=""https://github.com/tconkling47/543_dashboard/raw/main/"""
+"0","boxplot=readRDS(file=url(paste0(myWeb,""boxplot.rds"")))"
+"0","boxplot_image=""https://github.com/tconkling47/543_dashboard/raw/main/Conkling_Bivariate_Cat-Numerical_Graph_PUBPOL543.jpg"" "
+"0","map=readRDS(file=url(paste0(myWeb,""map.rds"")))"
+"0","univariate=readRDS(file=url(paste0(myWeb,""univariate.rds"")))"
+"0","univariate_image = ""https://github.com/tconkling47/543_dashboard/raw/main/Conkling_Univariate_PUBPOL543.jpg"" "
+"0","flagships4=readRDS(file=url(paste0(myWeb,""flagships.rds"")))"

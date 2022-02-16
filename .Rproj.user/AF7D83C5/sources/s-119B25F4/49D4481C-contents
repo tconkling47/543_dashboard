@@ -23,59 +23,11 @@ library(scales)
 myWeb="https://github.com/tconkling47/543_dashboard/raw/main/"
 boxplot=readRDS(file=url(paste0(myWeb,"boxplot.rds")))
 boxplot_image="https://github.com/tconkling47/543_dashboard/raw/main/Conkling_Bivariate_Cat-Numerical_Graph_PUBPOL543.jpg" 
-map=readRDS(file=url(paste0(myWeb,"map.rds")))
 univariate=readRDS(file=url(paste0(myWeb,"univariate.rds")))
-univariate_image = "https://github.com/tconkling47/543_dashboard/raw/main/Conkling_Univariate_PUBPOL543.jpg" 
-flagships4=readRDS(file=url(paste0(myWeb,"flagships.rds")))
+univariate_image = "https://github.com/tconkling47/543_dashboard/raw/main/Conkling_Univariate_PUBPOL543.jpg"
+interactive_map=readRDS(file=url(paste0(myWeb,"interactive_map.rds")))
 ```
 
-
-```{r}
-linkMap="https://raw.githubusercontent.com/tconkling47/543_Deliverable_3_Map/main/states.geojson" 
-mapUSA=read_sf(linkMap)
-flagships_sf = st_as_sf(flagships4,
-                        coords = c("LONGITUDE", "LATITUDE"),
-                        crs = st_crs(mapUSA)
-                        )
-base_A1=ggplot(data=mapUSA) + geom_sf(fill='grey90',
-                                   color=NA) + theme_classic()
-pointsA = base_A1 + geom_sf(data=flagships_sf,
-                        aes(fill= school_average_student_debt, text=INSTNM))
-pointsA_1 <-  ggplotly(pointsA)
-```
-
-```{r}
-flagships4$debt <- with(flagships4, cut(school_average_student_debt, quantile(school_average_student_debt)))
-levels(flagships4$debt) <- paste(c("1st", "2nd", "3rd", "4th", "5th"), "Average Student Debt")
-flagships4$debt <- as.ordered(flagships4$debt)
-
-flagships4$enrl <- with(flagships4, cut(UGDS, quantile(UGDS)))
-levels(flagships4$enrl) <- paste(c("1st", "2nd", "3rd", "4th", "5th"), "Average Student Debt")
-flagships4$enrl <- as.ordered(flagships4$enrl)
-
-legend.sizes = c(10000, 20000, 30000, 40000, 50000, 60000, 75000)
-ax = list(zeroline = FALSE, showline = FALSE, showticklabels = FALSE, showgrid = FALSE)
-mk = list(sizeref=0.1, sizemode="area")
-
-pointsB_1 <- plot_geo(flagships4, locationmode = 'USA-states', sizes = c(1,250))
-pointsB_1 <- pointsB_1 %>% add_markers(
-  x~LONGITUDE, y~LATITUDE, color = ~debt, size = ~UGDS, marker= mk, hoverinfo = "text", text = ~paste(flagships4$INSTNM, "<br />", flagships4$school_average_student_debt, flagships4$UGDS)
-)
-g <- list(
-  scope = 'usa',
-  projection = list(type = 'albers usa'),
-  showland = TRUE,
-  landcolor = toRGB("gray85"),
-  subunitwidth = 1,
-  countrywidth = 1,
-  subunitcolor = toRGB("white"),
-  countrycolor = toRGB("white")
-)
-plot.legend <- plotly() %>%
-  add_markers(x=1, y= legend.sizes, size = legend.sizes, showlegend = F, marker = mk)
-pointsB_1 <- pointsB_1 %>% layout(geo = g)
-pointsB_2 <- subplot(plot.legend, pointsB_1)
-```
 
 ```{r}
 pointsC_1 <- plot_geo(flagships4, lat = ~LATITUDE, lon = ~LONGITUDE)
@@ -131,15 +83,6 @@ pointsC_2 <- pointsC_2 %>%
 
 
 
-```{r}
-linkMap="https://raw.githubusercontent.com/tconkling47/543_Deliverable_3_Map/main/states.geojson" 
-mapUSA=read_sf(linkMap)
-base=ggplot(data=mapUSA) + geom_sf(fill='grey90',
-                                   color=NA) + theme_classic()
-base2 = base + coord_sf(xlim = c(-125, -70), ylim = c(25, 49))
-base2 <- base2 + geom_point(data=flagships4, aes(x=LONGITUDE, y=LATITUDE, size=UGDS, color=school_average_student_debt)) + scale_size_continuous(range=c(1,12)) + scale_color_viridis_b(trans="log")
-```
-
 
 
 Column {data-width=650}
@@ -148,7 +91,7 @@ Column {data-width=650}
 ### Average Undergraduate Student Debt at U.S. Flagship Public Universities
 
 ```{r}
-pointsC_2
+interactive_map
 ```
 
 
