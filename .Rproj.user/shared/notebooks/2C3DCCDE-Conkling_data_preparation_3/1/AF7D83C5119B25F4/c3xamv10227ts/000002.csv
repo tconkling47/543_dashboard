@@ -105,6 +105,6 @@
 
 "
 "0","pointsC_2 <- pointsC_2 %>%"
-"0","  layout(title = list(text = 'Flagship Public Universities Enroll Large Student Populations Who Have Relatively Low Student Debt Burdens After Graduation', y=0.97, x=0.5, font = list(family = ""Arial"", size = 16)))"
+"0","  layout(title = list(text = 'Flagship Public Universities Enroll Large Student Populations With Relatively Low Student Debt Burdens After Graduation', y=0.97, x=0.5, font = list(family = ""Arial"", size = 20)))"
 "0","#saving"
 "0","saveRDS(pointsC_2,file = 'interactive_map.rds')"
