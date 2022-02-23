@@ -1,0 +1,84 @@
+"0","flagships4$debt <- with(flagships4, cut(school_average_student_debt, quantile(school_average_student_debt)))"
+"0","levels(flagships4$debt) <- paste(c(""1st"", ""2nd"", ""3rd"", ""4th"", ""5th""), ""Average Student Debt"")"
+"0","flagships4$debt <- as.ordered(flagships4$debt)"
+"0",""
+"0","flagships4$enrl <- with(flagships4, cut(UGDS, quantile(UGDS)))"
+"0","levels(flagships4$enrl) <- paste(c(""1st"", ""2nd"", ""3rd"", ""4th"", ""5th""), ""Average Student Debt"")"
+"0","flagships4$enrl <- as.ordered(flagships4$enrl)"
+"0",""
+"0","legend.sizes = c(10000, 20000, 30000, 40000, 50000, 60000, 75000)"
+"0","ax = list(zeroline = FALSE, showline = FALSE, showticklabels = FALSE, showgrid = FALSE)"
+"0","mk = list(sizeref=0.1, sizemode=""area"")"
+"0",""
+"0","pointsB_1 <- plot_geo(flagships4, locationmode = 'USA-states', sizes = c(1,250))"
+"0","pointsB_1 <- pointsB_1 %>% add_markers("
+"0","  x~LONGITUDE, y~LATITUDE, color = ~debt, size = ~UGDS, marker= mk, hoverinfo = ""text"", text = ~paste(flagships4$INSTNM, ""<br />"", flagships4$school_average_student_debt, flagships4$UGDS)"
+"0",")"
+"0","g <- list("
+"0","  scope = 'usa',"
+"0","  projection = list(type = 'albers usa'),"
+"0","  showland = TRUE,"
+"0","  landcolor = toRGB(""gray85""),"
+"0","  subunitwidth = 1,"
+"0","  countrywidth = 1,"
+"0","  subunitcolor = toRGB(""white""),"
+"0","  countrycolor = toRGB(""white"")"
+"0",")"
+"0","plot.legend <- plotly() %>%"
+"0","  add_markers(x=1, y= legend.sizes, size = legend.sizes, showlegend = F, marker = mk)"
+"2","Warning in open.connection(con, ""rb"") :"
+"2","
+ "
+"2"," cannot open file 'C:\Users\thoma\OneDrive\Documents/.plotly/.credentials': No such file or directory
+"
+"2","Warning in open.connection(con, ""rb"") :"
+"2","
+ "
+"2"," cannot open file 'C:\Users\thoma\OneDrive\Documents/.plotly/.config': No such file or directory
+"
+"2","Warning:"
+"2"," You need a plotly username. See help(signup, package = 'plotly')
+"
+"2","Warning:"
+"2"," Couldn't find username
+"
+"2","Warning in open.connection(con, ""rb"") :"
+"2","
+ "
+"2"," cannot open file 'C:\Users\thoma\OneDrive\Documents/.plotly/.credentials': No such file or directory
+"
+"2","Warning in open.connection(con, ""rb"") :"
+"2","
+ "
+"2"," cannot open file 'C:\Users\thoma\OneDrive\Documents/.plotly/.config': No such file or directory
+"
+"2","Warning:"
+"2"," You need an api_key. See help(signup, package = 'plotly')
+"
+"2","Warning:"
+"2"," Couldn't find api_key
+"
+"2","Warning:"
+"2"," 'plotly' is deprecated.
+Use 'ggplotly' instead.
+See help(""Deprecated"")
+"
+"2","Warning:"
+"2"," 'plotly' is deprecated.
+Use 'plot_ly' instead.
+See help(""Deprecated"")
+"
+"0","pointsB_1 <- pointsB_1 %>% layout(geo = g)"
+"0","pointsB_2 <- subplot(plot.legend, pointsB_1)"
+"2","Warning:"
+"2"," `line.width` does not currently support multiple values.
+"
+"2","Warning:"
+"2"," `line.width` does not currently support multiple values.
+"
+"2","Warning:"
+"2"," `line.width` does not currently support multiple values.
+"
+"2","Warning:"
+"2"," `line.width` does not currently support multiple values.
+"
