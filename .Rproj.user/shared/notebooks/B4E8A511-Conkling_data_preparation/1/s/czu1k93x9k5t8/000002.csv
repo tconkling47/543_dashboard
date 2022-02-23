@@ -1,0 +1,15 @@
+"0","```r
+#Load College Scorecard
+college_scorecard_19_20 <- read.csv(\"https://raw.githubusercontent.com/tconkling47/543_deliverable_2/main/college_scorecard_19-20.csv\")
+
+#Load Student Debt Data
+url <- \"https://raw.githubusercontent.com/tconkling47/543_deliverable_2/main/recent_cohort_field_of_study.xlsx\"
+destfile <- \"recent_cohort_field_of_study.xlsx\"
+curl::curl_download(url, destfile)
+recent_cohort_field_of_study <- read_excel(destfile)
+
+url <- \"https://raw.githubusercontent.com/tconkling47/543_Deliverable_3_Map/main/Flagship_State_Universities.xlsx\"
+destfile <- \"Flagship_State_Universities.xlsx\"
+curl::curl_download(url, destfile)
+flagships <- read_excel(destfile)
+```"

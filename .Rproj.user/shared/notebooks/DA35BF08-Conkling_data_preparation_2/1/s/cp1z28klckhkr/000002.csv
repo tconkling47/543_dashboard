@@ -1,0 +1,5 @@
+"0","```r
+base_A1=ggplot(data=mapUSA) + geom_sf(fill='grey90',
+                                   color=NA) + theme_classic()
+base_A1
+```"

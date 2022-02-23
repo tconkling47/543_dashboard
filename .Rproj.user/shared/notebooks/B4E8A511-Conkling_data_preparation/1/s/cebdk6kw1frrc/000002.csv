@@ -1,0 +1,30 @@
+"0","```r
+collegetypes <- college_scorecard_19_20 %>%
+  mutate(
+    type = case_when(CONTROL==1    ~ 'Public'
+                     ,CONTROL==2 & RELAFFIL=='NULL' ~ 'Non-Profit'
+                     , CONTROL==2 & RELAFFIL!='NULL'      ~ 'Religious'
+                     , CONTROL==3     ~ 'For-Profit')
+  ) %>%
+  select(UNITID, INSTNM, type)
+debt_pre_merge <- recent_cohort_field_of_study %>%
+  filter(CREDLEV==3) %>%
+  select(UNITID, INSTNM, CIPCODE, CIPDESC, CREDLEV, CREDDESC, DEBT_ALL_STGP_ANY_N, DEBT_ALL_STGP_ANY_MEAN)
+data1 <- debt_pre_merge %>%
+  filter(DEBT_ALL_STGP_ANY_N != 'PrivacySuppressed' 
+         & DEBT_ALL_STGP_ANY_MEAN != 'PrivacySuppressed')
+data2 <- transform(data1, DEBT_ALL_STGP_ANY_N = as.numeric(DEBT_ALL_STGP_ANY_N),
+                    DEBT_ALL_STGP_ANY_MEAN = as.numeric(DEBT_ALL_STGP_ANY_MEAN))
+data3 <- data2 %>%
+  mutate(total_debt = DEBT_ALL_STGP_ANY_N*DEBT_ALL_STGP_ANY_MEAN)
+data4 <- data3 %>%
+  group_by(UNITID) %>%
+  summarise(total_students_in_school_sample = sum(DEBT_ALL_STGP_ANY_N),
+            total_debt_in_school_sample = sum(total_debt)) %>%
+  mutate(school_average_student_debt = total_debt_in_school_sample/total_students_in_school_sample)
+data5 <- merge(data4, collegetypes, by=\"UNITID\")
+base=ggplot(data=data5,
+            aes(x=type,y=school_average_student_debt))
+
+base + geom_boxplot() + coord_flip()
+```"

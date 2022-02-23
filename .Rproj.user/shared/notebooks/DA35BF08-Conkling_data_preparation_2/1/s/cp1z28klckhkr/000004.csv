@@ -1,0 +1,10 @@
+"0","```r
+pointsA = base_A1 + geom_sf(data=flagships_sf,
+                        shape=21,
+                        aes(fill= school_average_student_debt,
+                            size= UGDS))
+pointsA_1 = ggplotly(pointsA)
+```"
+"1","Warning in L$marker$color[idx] <- aes2plotly(data, params, \"fill\")[idx] :
+  number of items to replace is not a multiple of replacement length
+"
