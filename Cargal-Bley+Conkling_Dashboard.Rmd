@@ -52,7 +52,7 @@ Row {data-width=350}
 knitr::include_graphics(univariate_image)
 ```
 
-### Distribution of Average Undergraduate Student Debt for Bachelor's Degree Graduates, by Institution Type
+### Distribution of Average Undergraduate Student Debt for Bachelor's Degree Graduates, by Institution Type 
 
 ```{r image, echo = F, fig.cap = "", out.width = '100%'}
 knitr::include_graphics(boxplot_image)
