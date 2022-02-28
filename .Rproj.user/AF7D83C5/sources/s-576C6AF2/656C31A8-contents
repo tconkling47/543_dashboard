@@ -1,0 +1,97 @@
+---
+title: "Tommy Conkling & Jacob Cargal-Bley PUBPOL 543 Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+#load packages
+library(flexdashboard)
+library(ggplot2)
+library(plotly)
+library(sf)
+library(tidyverse)
+library(scales)
+library(grid)
+library(scales)
+library(viridis)
+```
+
+```{r}
+#load Conkling's files
+myWeb="https://github.com/tconkling47/543_dashboard/raw/main/"
+boxplot=readRDS(file=url(paste0(myWeb,"boxplot.rds")))
+boxplot_image="https://github.com/tconkling47/543_dashboard/raw/main/Conkling_Bivariate_Cat-Numerical_Graph_PUBPOL543.jpg" 
+univariate=readRDS(file=url(paste0(myWeb,"univariate.rds")))
+univariate_image = "https://github.com/tconkling47/543_dashboard/raw/main/Conkling_Univariate_PUBPOL543.jpg"
+interactive_map=readRDS(file=url(paste0(myWeb,"interactive_map.rds")))
+
+#load Cargal-Bley's files
+cbWeb="https://raw.githubusercontent.com/jcargalb/543coursework/main/"
+deathmap=readRDS(file=url(paste0(cbWeb,"deathmap.rds")))
+deathmap_image="https://github.com/jcargalb/543coursework/raw/main/deathmap.jpg"
+recycling=readRDS(file=url(paste0(cbWeb,"recyclingsplot.rds")))
+recycling_image = "https://github.com/jcargalb/543coursework/raw/main/recycling.jpg"
+electronics=readRDS(file=url(paste0(cbWeb,"electronicsplot.rds")))
+electronics_image = "https://github.com/jcargalb/543coursework/raw/main/electronics.jpg"
+```
+
+Conkling: Public Universities are the Best Financial Choice for B.A. Degrees
+=======================================================================
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Average Undergraduate Student Debt at U.S. Flagship Public Universities
+
+```{r}
+interactive_map
+```
+
+
+
+Row {data-width=350}
+-----------------------------------------------------------------------
+
+### Average Undergraduate Yearly Tuition at U.S. Colleges and Universities, by Institution Type
+
+```{r pic, echo = F, fig.cap = "", out.width = '100%'}
+knitr::include_graphics(univariate_image)
+```
+
+### Distribution of Average Undergraduate Student Debt for Bachelor's Degree Graduates, by Institution Type 
+
+```{r image, echo = F, fig.cap = "", out.width = '100%'}
+knitr::include_graphics(boxplot_image)
+```
+
+
+
+Cargal-Bley: Death and Recycling
+=======================================================================
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Global Death Rates per 1,000 in 2022 
+
+```{r image1, echo = F, fig.cap = "", out.width = '100%'}
+knitr::include_graphics(deathmap_image)
+```
+
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Metric Tons of Recycling in Washington State (2009-2018) 
+
+```{r image2, echo = F, fig.cap = "", out.width = '100%'}
+knitr::include_graphics(recycling_image)
+```
+
+### Metric Tons of Electronics Recycled in Washington State (2009-2018)
+
+```{r image3, echo = F, fig.cap = "", out.width = '100%'}
+knitr::include_graphics(electronics_image)
+```

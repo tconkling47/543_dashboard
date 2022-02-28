@@ -1,4 +1,0 @@
-"0","grob <- grobTree(textGrob(""e.g. Ivy League, Liberal Arts Colleges"", x=0.6,  y=0.34, hjust=0,"
-"0","  gp=gpar(col=""black"", fontsize=11, fontface=""italic"")))"
-"0","boxplot8 = boxplot7 + annotation_custom(grob)"
-"0","boxplot8"
