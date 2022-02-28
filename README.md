@@ -8,6 +8,8 @@ For our finished dashboard, please see the following website: https://rpubs.com/
 
 Alternatively, for our finished dashboard, you can look at the html file: "Cargal-Bley+Conkling_Dashboard.html"
 
+Jacob's Github Repository can be found here: https://github.com/jcargalb/543coursework
+
 Please let us know if you have any questions or concerns.
 
 -Tommy Conkling & Jacob Cargal-Bley
