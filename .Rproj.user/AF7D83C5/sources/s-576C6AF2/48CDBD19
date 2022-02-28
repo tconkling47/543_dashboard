@@ -3,7 +3,7 @@
     "path": "C:/Users/thoma/OneDrive/Desktop/Conkling_543_Repos/543_dashboard/Conkling_data_preparation.Rmd",
     "project_path": "Conkling_data_preparation.Rmd",
     "type": "r_markdown",
-    "hash": "893226871",
+    "hash": "44807862",
     "contents": "",
     "dirty": false,
     "created": 1645634031989.0,
@@ -13,16 +13,16 @@
         "chunk_output_type": "inline",
         "source_window_id": "",
         "Source": "Source",
-        "last_setup_crc32": "0F7583602fe679fb",
-        "cursorPosition": "276,47",
-        "scrollLine": "259"
+        "last_setup_crc32": "576C6AF22fe679fb",
+        "cursorPosition": "274,96",
+        "scrollLine": "248"
     },
     "folds": "",
-    "lastKnownWriteTime": 1645635337,
+    "lastKnownWriteTime": 1646067960,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1645635338015,
+    "last_content_update": 1646069183784,
     "read_only": false,
     "read_only_alternatives": []
 }
